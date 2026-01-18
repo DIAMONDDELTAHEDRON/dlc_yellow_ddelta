@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 26,
+  nextobjectid = 27,
   properties = {
     ["light"] = true,
     ["music"] = "vigorous_terrain",
@@ -411,14 +411,14 @@ return {
           }
         },
         {
-          id = 25,
+          id = 26,
           name = "warpbin",
           type = "",
-          shape = "point",
-          x = 320,
+          shape = "rectangle",
+          x = 280,
           y = 280,
-          width = 0,
-          height = 0,
+          width = 120,
+          height = 40,
           rotation = 0,
           visible = true,
           properties = {}
