@@ -60,6 +60,9 @@ function Mod:init()
 end
 
 function Mod:postInit(new_file)
+	if not Game:getFlag("SHINY") or Game:getFlag("SHINY")["ceroba"] == nil then
+		Game:rollShiny("ceroba")
+	end
     if not Game:getFlag("snowdin_yellow_kills") then
         Game:setFlag("snowdin_yellow_kills", 0)
     end
