@@ -106,13 +106,6 @@ amount of G inside.)</property>
   <object id="21" name="script" x="780" y="280" width="40" height="160">
    <properties>
     <property name="cutscene" value="_THISDLCISUNFINISHED"/>
-    <property name="once" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="22" name="script" x="180" y="280" width="40" height="160">
-   <properties>
-    <property name="cutscene" value="nuhuh"/>
-    <property name="once" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

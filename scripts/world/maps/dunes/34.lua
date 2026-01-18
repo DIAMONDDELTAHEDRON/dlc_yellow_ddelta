@@ -251,24 +251,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["cutscene"] = "_THISDLCISUNFINISHED",
-            ["once"] = false
-          }
-        },
-        {
-          id = 22,
-          name = "script",
-          type = "",
-          shape = "rectangle",
-          x = 180,
-          y = 280,
-          width = 40,
-          height = 160,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["cutscene"] = "nuhuh",
-            ["once"] = false
+            ["cutscene"] = "_THISDLCISUNFINISHED"
           }
         }
       }
