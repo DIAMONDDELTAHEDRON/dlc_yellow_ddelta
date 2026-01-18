@@ -10,7 +10,7 @@ return {
   tilewidth = 40,
   tileheight = 40,
   nextlayerid = 6,
-  nextobjectid = 23,
+  nextobjectid = 26,
   properties = {
     ["light"] = true,
     ["music"] = "vigorous_terrain",
@@ -116,144 +116,6 @@ return {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-      }
-    },
-    {
-      type = "objectgroup",
-      draworder = "topdown",
-      id = 4,
-      name = "objects",
-      class = "",
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      parallaxx = 1,
-      parallaxy = 1,
-      properties = {},
-      objects = {
-        {
-          id = 1,
-          name = "transition",
-          type = "",
-          shape = "rectangle",
-          x = 0,
-          y = 280,
-          width = 40,
-          height = 160,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["map"] = "dunes/33",
-            ["marker"] = "right"
-          }
-        },
-        {
-          id = 2,
-          name = "transition",
-          type = "",
-          shape = "rectangle",
-          x = 960,
-          y = 280,
-          width = 40,
-          height = 160,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["map"] = "dunes/36",
-            ["marker"] = "left"
-          }
-        },
-        {
-          id = 3,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 486,
-          y = 710,
-          width = 72,
-          height = 118,
-          rotation = 0,
-          gid = 1279,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 14,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 570,
-          y = 720,
-          width = 40,
-          height = 40,
-          rotation = 0,
-          gid = 426,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 15,
-          name = "interactable",
-          type = "",
-          shape = "rectangle",
-          x = 570,
-          y = 702,
-          width = 40,
-          height = 18,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["solid"] = true,
-            ["text1"] = "* The Dunes wishing well.",
-            ["text2"] = "* Hold a G close to your chest,[wait:5]\nthink of what you want most,[wait:5]\nand toss it in!",
-            ["text3"] = "* You never know.[wait:5] If enough\nmonsters wish for something,[wait:5] it\nmay come true!"
-          }
-        },
-        {
-          id = 16,
-          name = "interactable",
-          type = "",
-          shape = "rectangle",
-          x = 492,
-          y = 652,
-          width = 60,
-          height = 58,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["solid"] = true,
-            ["text"] = "* (A wishing well with a large\namount of G inside.)"
-          }
-        },
-        {
-          id = 19,
-          name = "savepoint",
-          type = "",
-          shape = "point",
-          x = 520,
-          y = 321,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          properties = {}
-        },
-        {
-          id = 21,
-          name = "script",
-          type = "",
-          shape = "rectangle",
-          x = 780,
-          y = 280,
-          width = 40,
-          height = 160,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["cutscene"] = "_THISDLCISUNFINISHED"
-          }
-        }
       }
     },
     {
@@ -408,6 +270,157 @@ return {
             { x = 40, y = 0 },
             { x = 40, y = -40 }
           },
+          properties = {}
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 4,
+      name = "objects",
+      class = "",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 1,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 280,
+          width = 40,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["map"] = "dunes/33",
+            ["marker"] = "right"
+          }
+        },
+        {
+          id = 2,
+          name = "transition",
+          type = "",
+          shape = "rectangle",
+          x = 960,
+          y = 280,
+          width = 40,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["map"] = "dunes/36",
+            ["marker"] = "left"
+          }
+        },
+        {
+          id = 3,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 486,
+          y = 710,
+          width = 72,
+          height = 118,
+          rotation = 0,
+          gid = 1279,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 14,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 570,
+          y = 720,
+          width = 40,
+          height = 40,
+          rotation = 0,
+          gid = 426,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 15,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 570,
+          y = 702,
+          width = 40,
+          height = 18,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["solid"] = true,
+            ["text1"] = "* The Dunes wishing well.",
+            ["text2"] = "* Hold a G close to your chest,[wait:5]\nthink of what you want most,[wait:5]\nand toss it in!",
+            ["text3"] = "* You never know.[wait:5] If enough\nmonsters wish for something,[wait:5] it\nmay come true!"
+          }
+        },
+        {
+          id = 16,
+          name = "interactable",
+          type = "",
+          shape = "rectangle",
+          x = 492,
+          y = 652,
+          width = 60,
+          height = 58,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["solid"] = true,
+            ["text"] = "* (A wishing well with a large\namount of G inside.)"
+          }
+        },
+        {
+          id = 19,
+          name = "savepoint",
+          type = "",
+          shape = "point",
+          x = 520,
+          y = 321,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          properties = {}
+        },
+        {
+          id = 21,
+          name = "script",
+          type = "",
+          shape = "rectangle",
+          x = 780,
+          y = 280,
+          width = 40,
+          height = 160,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["cutscene"] = "_THISDLCISUNFINISHED"
+          }
+        },
+        {
+          id = 25,
+          name = "warpbin",
+          type = "",
+          shape = "point",
+          x = 320,
+          y = 280,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
           properties = {}
         }
       }
