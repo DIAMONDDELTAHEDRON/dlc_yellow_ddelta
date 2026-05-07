@@ -301,26 +301,19 @@ function Goosic:onDefeat(damage, battler)
 end
 
 function Goosic:explodeParts()
-    local function makeSprite(spritepath, x, y)
-        local sprite = Sprite(spritepath, x, y)
-        sprite.layer = LIGHT_BATTLE_LAYERS["above_battlers"] + 1
-        sprite:setOrigin(0.5, 0.5)
-        sprite:setScale(2, 2)
-        Game.battle:addChild(sprite)
-        sprite.physics.direction = math.rad(Utils.random(360))
-        sprite.physics.speed = 7
-        sprite.physics.gravity = 0.2
-    end
-    local relative_pos_x, relative_pos_y = self:getRelativePos(self.width / 2, self.height / 2)
+    local x, y = self:getRelativePos(self.width / 2, self.height / 2)
     local path = "battle/lightenemies/goosic/explosion_parts/"
-    makeSprite(path.."body", relative_pos_x, relative_pos_y)
-    makeSprite(path.."crown", relative_pos_x, relative_pos_y)
-    makeSprite(path.."disc", relative_pos_x, relative_pos_y)
-    makeSprite(path.."head", relative_pos_x, relative_pos_y)
-    makeSprite(path.."leg", relative_pos_x, relative_pos_y)
-    makeSprite(path.."leg_back", relative_pos_x, relative_pos_y)
-    makeSprite(path.."mouth", relative_pos_x, relative_pos_y)
-    makeSprite(path.."neck", relative_pos_x, relative_pos_y)
+    Game.battle:addChild(RobotDestroyPartParent(path.."leg_back", x - 25, y + 42, 13, 19))
+    Game.battle:addChild(RobotDestroyPartParent(path.."body",     x,      y,      33, 34))
+    Game.battle:addChild(RobotDestroyPartParent(path.."leg",      x + 16, y + 44, 16, 21))
+    Game.battle:addChild(RobotDestroyPartParent(path.."neck",     x - 39, y + 21, 9,  9))
+    Game.battle:addChild(RobotDestroyPartParent(path.."neck",     x - 52, y + 9,  9,  9))
+    Game.battle:addChild(RobotDestroyPartParent(path.."neck",     x - 57, y - 9,  9,  9))
+    Game.battle:addChild(RobotDestroyPartParent(path.."neck",     x - 57, y - 25, 9,  9))
+    Game.battle:addChild(RobotDestroyPartParent(path.."neck",     x - 48, y - 43, 9,  9))
+    Game.battle:addChild(RobotDestroyPartParent(path.."crown",    x - 48, y - 90, 22, 19))
+    Game.battle:addChild(RobotDestroyPartParent(path.."head",     x - 33, y - 66, 21, 21))
+    Game.battle:addChild(RobotDestroyPartParent(path.."mouth",    x + 10, y - 70, 35, 42))
 end
 
 function Goosic:getEncounterText()
