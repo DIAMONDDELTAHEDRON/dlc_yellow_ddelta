@@ -32,7 +32,6 @@ function item:init()
     self.bonuses = {
         defense = 8
     }
-
 end
 
 return item
