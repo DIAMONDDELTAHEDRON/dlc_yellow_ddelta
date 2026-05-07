@@ -17,7 +17,9 @@ function Goosic:init()
     self.dialogue_offset = {-30, 10}
 
     self.waves = {
-        "basic"
+        --"goosic/eq_visualizer",
+        "goosic/disk",
+        --"goosic/speaker"
     }
 
     self.dialogue = {
