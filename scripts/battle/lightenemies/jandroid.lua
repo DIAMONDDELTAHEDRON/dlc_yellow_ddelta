@@ -211,7 +211,7 @@ function Jandroid:onDefeat(damage, battler)
     if Game:getFlag("steamworks_kills") == 20 then
         Game:setFlag("EMPTIED_STEAMWORKS", true)
         MUSIC_PITCHES["steamworks_overworld"] = 0.25
-    elseif Game:getFlag("steamworks_kills") > 13 and Game:getFlag("steamworks_kills") < 20 and #Game.battle.enemies > 0 then
+    elseif Game:getFlag("steamworks_kills") > 13 and Game:getFlag("steamworks_kills") < 20 and #Game.battle:getActiveEnemies() > 0 then
         Game.battle.timer:after(1, function()
             local enemies_left = 20 - Game:getFlag("steamworks_kills")
             local mus_pitch = 1
@@ -220,7 +220,7 @@ function Jandroid:onDefeat(damage, battler)
             end
             Game.battle.music:setPitch(mus_pitch)
         end)
-    elseif Game:getFlag("steamworks_kills") == 13 and #Game.battle.enemies > 0 then
+    elseif Game:getFlag("steamworks_kills") == 13 and #Game.battle:getActiveEnemies() > 0 then
         Game.battle.music:stop()
         Game.battle.timer:after(1, function()
             Game.battle.music:play("genobattle_yellow")
@@ -230,39 +230,23 @@ function Jandroid:onDefeat(damage, battler)
     Game.battle.timer:after(0.8, function()
         self.alpha = 0
         Assets.playSound("ut_explosion")
-        local explosion = Sprite("battle/lightenemies/robot_destroy_explosion")
-        explosion:setPosition(self:getRelativePos(self.width / 2, self.height / 2))
-        explosion.layer = LIGHT_BATTLE_LAYERS["above_battlers"]
-        explosion:setOrigin(0.5, 0.5)
-        explosion:setScale(2, 2)
-        Game.battle:addChild(explosion)
-        Game.battle.timer:after(1, function()
-            explosion:fadeOutAndRemove(1)
-        end)
+        Game.battle:addChild(RobotDestroyExplosion(self.x, self.y-self.height/2))
         self:explodeParts()
     end)
 end
 
 function Jandroid:explodeParts()
-    local function makeSprite(spritepath, x, y)
-        local sprite = Sprite(spritepath)
-        sprite:setPosition(x or self.x, y or self.y)
-        sprite.layer = LIGHT_BATTLE_LAYERS["above_battlers"] + 1
-        sprite:setOrigin(0.5, 0.5)
-        sprite:setScale(2, 2)
-        Game.battle:addChild(sprite)
-        sprite.physics.direction = math.rad(Utils.random(360))
-        sprite.physics.speed = 7
-        sprite.physics.gravity = 0.2
-    end
-    local relative_pos_x, relative_pos_y = self:getRelativePos(self.width / 2, self.height / 2)
+    local x, y = self:getRelativePos(self.width / 2, self.height / 2)
+    -- weird fix to weird problem
+    y = y + 60
     local path = "battle/lightenemies/jandroid/explosion_parts/"
-    makeSprite(path.."body_bottom", relative_pos_x, relative_pos_y)
-    makeSprite(path.."body_top", relative_pos_x, relative_pos_y)
-    makeSprite(path.."broom", relative_pos_x, relative_pos_y)
-    makeSprite(path.."hand", relative_pos_x, relative_pos_y)
-    makeSprite(path.."head", relative_pos_x, relative_pos_y)
-    makeSprite(path.."headphones", relative_pos_x, relative_pos_y)
+    Game.battle:addChild(RobotDestroyPartParent(path.."body_bottom", x,      y,      26, 28))
+    Game.battle:addChild(RobotDestroyPartParent(path.."body_top",    x - 10, y - 43, 16, 15))
+    Game.battle:addChild(RobotDestroyPartParent(path.."broom",       x + 67, y - 47, 37, 87))
+    Game.battle:addChild(RobotDestroyPartParent(path.."headphones",  x - 6,  y - 95, 41, 43))
+    Game.battle:addChild(RobotDestroyPartParent(path.."head",        x + 2,  y - 62, 49, 56))
+    Game.battle:addChild(RobotDestroyPartParent(path.."hand",        x + 62, y - 86, 27, 38))
+    Game.battle:addChild(RobotDestroyPartParent(path.."hand",        x + 58, y - 39, 27, 38))
 end
 
 function Jandroid:getEncounterText()

@@ -210,6 +210,8 @@ end
 
 function TellyVis:explodeParts()
     local x, y = self:getRelativePos(self.width / 2, self.height / 2)
+    -- weird fix to weird problem
+    y = y + 60
     local path = "battle/lightenemies/tellyvis/explosion_parts/"
     Game.battle:addChild(RobotDestroyPartParent(path.."body", x - 2, y - 72, 78, 68))
     local lefth = Game.battle:addChild(RobotDestroyPartParent(path.."hand", x - 64, y - 60, 27, 38))

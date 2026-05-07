@@ -276,7 +276,7 @@ function Goosic:onDefeat(damage, battler)
     if Game:getFlag("steamworks_kills") == 20 then
         Game:setFlag("EMPTIED_STEAMWORKS", true)
         MUSIC_PITCHES["steamworks_overworld"] = 0.25
-    elseif Game:getFlag("steamworks_kills") > 13 and Game:getFlag("steamworks_kills") < 20 and #Game.battle.enemies > 0 then
+    elseif Game:getFlag("steamworks_kills") > 13 and Game:getFlag("steamworks_kills") < 20 and #Game.battle:getActiveEnemies() > 0 then
         Game.battle.timer:after(1, function()
             local enemies_left = 20 - Game:getFlag("steamworks_kills")
             local mus_pitch = 1
@@ -285,7 +285,7 @@ function Goosic:onDefeat(damage, battler)
             end
             Game.battle.music:setPitch(mus_pitch)
         end)
-    elseif Game:getFlag("steamworks_kills") == 13 and #Game.battle.enemies > 0 then
+    elseif Game:getFlag("steamworks_kills") == 13 and #Game.battle:getActiveEnemies() > 0 then
         Game.battle.music:stop()
         Game.battle.timer:after(1, function()
             Game.battle.music:play("genobattle_yellow")
