@@ -9,7 +9,7 @@ end
 
 function SteamworksChaseVent:onInteract(chara, dir)
     Game.world:startCutscene(function(cutscene)
-        local opinion = cutscene:textChoicer("* (Crawl through the vent?)\n", {"Yes", "    No"})
+        local opinion = cutscene:textChoicer("* (Crawl through the vent?)\n", {"Yes", "No"})
         if opinion == 1 then
 			cutscene:fadeOut(0.5, {music = true})
 			cutscene:wait(0.5)

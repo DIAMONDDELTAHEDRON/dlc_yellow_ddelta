@@ -5,7 +5,7 @@ return {
         axis:setAnimation("left")
         cutscene:wait(1)
         cutscene:text("* HALT.", "normal", "axis")
-        cutscene:text("* OH WAIT YOU CAN GO BEACUSE THAT CUTSCENE IS NOT DONE.", "normal", "axis")
+        cutscene:text("* STATE YOUR PURPOSE.", "normal", "axis")
         Game:setFlag("axis_met", true)
     end,
     axis_meeting_alt = function(cutscene, event)
@@ -23,14 +23,21 @@ return {
         local leader = Game.world.player
         local dess = cutscene:getCharacter("dess")
         local axis = cutscene:getCharacter("axis")
-        local trapdoor = Game.world.map:getEvent("stw_trapdoor")
+        local function openTrapdoor(x, y)
+            local trapdoor = Sprite("world/maps/steamworks/small_objects/12_trapdoor", x, y)
+            trapdoor:setScale(2)
+            trapdoor:setOrigin(0.5, 0.5)
+            trapdoor.layer = Game.world.player.layer - 0.1
+            Game.world:addChild(trapdoor)
+            trapdoor:play(1/15, false)
+        end
 
         Game.world.music:stop()
         cutscene:detachFollowers()
 
         cutscene:walkTo(leader, event.x + event.width, event.y + event.height/2, 0.5, "left")
         for i = 2, #Game.party do
-            local offset = (i - 1) * 30
+            local offset = (i - 1) * 60
             local member = Game.party[i].id
             cutscene:walkTo(cutscene:getCharacter(member), event.x + event.width + offset, event.y + event.height / 2, 0.5, "left")
         end
@@ -39,10 +46,8 @@ return {
         cutscene:detachCamera()
         cutscene:panTo(Game.world.camera.x - 150, Game.world.camera.y)
         cutscene:wait(1.5)
-		Assets.playSound("spearappear", 2)
-        axis.alpha = 1
-        cutscene:wait(0.5)
-
+		Assets.playSound("spearappear")
+        axis:fadeTo(1, 0.5)
         cutscene:wait(1)
         cutscene:wait(cutscene:slideTo(axis, axis.x, leader.y, 0.2))
         cutscene:wait(0.1)
@@ -65,11 +70,9 @@ return {
                 cutscene:hideNametag()
 
                 Game.world.music:stop()
-                trapdoor:setSprite("world/maps/steamworks/small_objects/12_trapdoor", 1/10)
-                cutscene:wait(0.5)
+                openTrapdoor(580, 340)
                 Assets.playSound("trapdoor_open")
                 cutscene:wait(1.1)
-                trapdoor:setSprite("world/maps/steamworks/small_objects/12_trapdoor_16")
                 dess:setFacing("down")
                 cutscene:showNametag("Dess")
                 cutscene:text("* shit", "wtf_b", "dess")
@@ -83,7 +86,7 @@ return {
                 cutscene:detachCamera()
                 cutscene:slideTo(dess, dess.x, dess.y + 800, 1)
                 cutscene:mapTransition("steamworks/13")
-                Game:setFlag("basement_trapped", true)
+                Game:setFlag("stw_basement_trapped", true)
             end
         else
             if Game:getFlag("EMPTIED_DUNES") then
@@ -117,12 +120,12 @@ return {
             else
                 Game.world.music:play("enter_axis")
                 cutscene:showNametag("Axis")
-                cutscene:text("* FOUND YOU.", "normal", "axis")
                 if cutscene:getCharacter("susie_lw") then
-                    cutscene:showNametag("Susie")
-                    cutscene:text("* The hell do you need from us?!", "angry", "susie")
-                    cutscene:text("* Just piss off,[wait:5] dude.", "annoyed", "susie")
-                    cutscene:showNametag("Axis")
+                    cutscene:text("* FOUND YOU.[react:1]", "normal", "axis", {reactions={
+						{"(Great. Just great.)", "mid", "bottom", "annoyed", "susie"}
+					}})
+                else
+                    cutscene:text("* FOUND YOU.", "normal", "axis")
                 end
                 cutscene:text("* YOUR CRIMES ARE AS\nFOLLOWS:", "normal", "axis")
                 cutscene:text("* - TRESPASSING ON\nPRIVATE PROPERTY.", "normal", "axis")
@@ -182,12 +185,12 @@ return {
                     end
                 elseif opinion == 2 then
                     if cutscene:getCharacter("susie_lw") then
-                        cutscene:showNametag("Susie")
-                        --cutscene:getCharacter("susie_lw"):setSprite("exasperated_left")
-                        cutscene:text("* (WHY'D YOU SAY THAT!?)", "teeth", "susie")
-                        cutscene:showNametag("Axis")
+                        cutscene:text("* REALLY?[react:1]", "normal", "axis", {reactions={
+							{"(WHY'D YOU SAY THAT!?)", "mid", "bottom", "teeth", "susie"}
+						}})
+                    else
+                        cutscene:text("* REALLY?", "normal", "axis")
                     end
-                    cutscene:text("* REALLY?", "normal", "axis")
                     cutscene:text("* THAT WAS EASY.", "normal", "axis")
                     cutscene:text("* YOUR CRIMES WILL BE\nREPORTED TO AN\nAUTHORITY.", "normal", "axis")
                     cutscene:text("* OH WAIT,[wait:5] THAT IS ME.", "normal", "axis")
@@ -208,7 +211,7 @@ return {
                                 can_go = false
                             end
                         end
-                    end 
+                    end
                     if can_go == true then
                         cutscene:wait(cutscene:walkTo(cutscene:getCharacter("noel"), event.x + event.width + 120, event.y + event.height / 2, 0.5, "left"))
                         noel_not_fall = true
@@ -216,11 +219,12 @@ return {
                 end
 
                 Game.world.music:stop()
-                trapdoor:setSprite("world/maps/steamworks/small_objects/12_trapdoor", 1/10)
-                cutscene:wait(0.5)
+                openTrapdoor(590, 340)
+                if #Game.party > 2 then
+                    openTrapdoor(712, 340)
+                end
                 Assets.playSound("trapdoor_open")
                 cutscene:wait(1.1)
-                trapdoor:setSprite("world/maps/steamworks/small_objects/12_trapdoor_16")
 
                 for _,member in ipairs(Game.party) do
                     local chara = Game.world:getCharacter(member.id)
@@ -264,6 +268,11 @@ return {
                     Assets.playSound("noelle_scared")
                 end
 
+                if dess then
+                    dess:setSprite("beatbox")
+                    --Game.world.timer:tween(1, dess, {rotation = math.rad(90)}, "in-bounce")
+                end
+
                 for _,member in ipairs(Game.party) do
                     local chara = Game.world:getCharacter(member.id)
                     if chara then
@@ -273,9 +282,15 @@ return {
                             elseif noel_umbrella == true then
                                 cutscene:slideTo(chara, chara.x, chara.y + 400, 1)
                             else
+                                chara:setOrigin(0.5, 0.5)
+                                chara:setPosition(chara.x, chara.y-chara.height/2)
+                                Game.world.timer:tween(2, chara, {rotation = math.rad(90)})
                                 cutscene:slideTo(chara, chara.x, chara.y + 800, 1)
                             end
                         else
+                            chara:setOrigin(0.5, 0.5)
+                            chara:setPosition(chara.x, chara.y-chara.height/2)
+                            Game.world.timer:tween(4, chara, {rotation = math.rad(90)})
                             cutscene:slideTo(chara, chara.x, chara.y + 800, 1)
                         end
                     end
@@ -291,13 +306,13 @@ return {
                     end
                 end
                 cutscene:mapTransition("steamworks/13")
-                Game:setFlag("basement_trapped", true)
+                Game:setFlag("stw_basement_trapped", true)
             end
         end
         Game:setFlag("axis_second_met", true)
     end,
     basement_door = function(cutscene, event)
-        if Game:getFlag("basement_trapped") and Game:getFlag("axis_basement_caught") ~= 2 then
+        if Game:getFlag("stw_basement_trapped") and Game:getFlag("axis_basement_caught") ~= 2 then
             Game.world:mapTransition("steamworks/13b")
         else
             cutscene:text("* (The door is locked.)")
@@ -328,7 +343,7 @@ return {
     end,
     vent = function(cutscene, event)
         cutscene:text("* A slightly open vent.")
-        local opinion = cutscene:textChoicer("* Go inside?\n", {"Yes", "    No"})
+        local opinion = cutscene:textChoicer("* Go inside?\n", {"Yes", "No"})
         if opinion == 1 then
             Game.world:mapTransition("steamworks/13", "vent")
         end
@@ -341,7 +356,7 @@ return {
         cutscene:wait(1)]]
     end,
     grandfather_clock = function(cutscene, event)
-        if not Game:getFlag("grandfather_clock_talk") then
+        if not Game:getFlag("stw_grandfather_clock_talk") then
             cutscene:showNametag("Clock")
             cutscene:text("* Tick-tock - tick-tock -\ntick-tock...", nil, event)
             cutscene:text("* The current time is 6:26,\nMonday morning!", nil, event)
@@ -349,8 +364,8 @@ return {
             cutscene:text("* That means Spring is upon us!", nil, event)
             cutscene:text("* This time of year, my creator\nrecommends a picnic by the\nriver just south of here!", nil, event)
             cutscene:hideNametag()
-            Game:setFlag("grandfather_clock_talk", 1)
-        elseif Game:getFlag("grandfather_clock_talk") == 1 then
+            Game:setFlag("stw_grandfather_clock_talk", 1)
+        elseif Game:getFlag("stw_grandfather_clock_talk") == 1 then
             cutscene:showNametag("Clock")
             cutscene:text("* Why the puzzled look? Have we\nnot met before?", nil, event)
             cutscene:showNametag("Grandfather Clock")
@@ -359,30 +374,30 @@ return {
             cutscene:text("* However, I cannot help but\nfeel there is a miscalculation\nin my tick-tocking.", nil, event)
             cutscene:text("* It is simply driving me mad!", nil, event)
             cutscene:hideNametag()
-            Game:setFlag("grandfather_clock_talk", 2)
-        elseif Game:getFlag("grandfather_clock_talk") == 2 then
+            Game:setFlag("stw_grandfather_clock_talk", 2)
+        elseif Game:getFlag("stw_grandfather_clock_talk") == 2 then
             cutscene:showNametag("Grandfather Clock")
             cutscene:text("* I do not sense the gears\nturning within these walls.", nil, event)
             cutscene:text("* Hm, yes, I believe the main\nclock face outside has stalled!", nil, event)
             cutscene:text("* An engineer should arrive to\nfix it soon.", nil, event)
             cutscene:text("* Do not worry, I will continue\nto keep the time!", nil, event)
             cutscene:hideNametag()
-            Game:setFlag("grandfather_clock_talk", 3)
-        elseif Game:getFlag("grandfather_clock_talk") == 3 then
+            Game:setFlag("stw_grandfather_clock_talk", 3)
+        elseif Game:getFlag("stw_grandfather_clock_talk") == 3 then
             cutscene:showNametag("Grandfather Clock")
             cutscene:text("* Tick-tock - tick-tock -\ntick-tock...", nil, event)
             cutscene:hideNametag()
         end
     end,
     note_17 = function(cutscene, event)
-        if Game:getFlag("note_17") == 1 then
-            Game:setFlag("note_17", 0)
+        if Game:getFlag("stw_note_17") == 1 then
+            Game:setFlag("stw_note_17", 0)
             cutscene:text("* (The paper underneath reads:)	")
             cutscene:text("* Project:[wait:5] Metal & Magic:	")
             cutscene:text("* Effective immediately,[wait:5] cease\nhome utility production at the\nFactory-	")
             cutscene:text("* (The rest of the page is\nredacted.)")
         else
-            Game:setFlag("note_17", 1)
+            Game:setFlag("stw_note_17", 1)
             cutscene:text("* (The topmost paper is a\nhandwritten letter.)	")
             cutscene:text("* To:[wait:5] King ASGORE.	")
             cutscene:text("* This project,[wait:5] while exciting,[wait:5]\nwill be quite the undertaking.	")
@@ -398,28 +413,28 @@ return {
         end
     end,
     boba_npc = function(cutscene, event)
-        if not Game:getFlag("boba_npc_talk") then
+        if not Game:getFlag("stw_boba_npc_talk") then
             cutscene:showNametag("Robot")
             cutscene:text("* (Slurp slurrrrp)", nil, event)
             cutscene:text("* Ahhhh!", nil, event)
             cutscene:text("* Nothing like Steamworks\nBoba-Soup (TM) to fuel the\nengine!", nil, event)
             cutscene:text("* What? Don't act like you've\nnever heard of it.", nil, event)
             cutscene:hideNametag()
-            Game:setFlag("boba_npc_talk", 1)
-        elseif Game:getFlag("boba_npc_talk") == 1 then
+            Game:setFlag("stw_boba_npc_talk", 1)
+        elseif Game:getFlag("stw_boba_npc_talk") == 1 then
             cutscene:showNametag("Robot")
             cutscene:text("* Did you know that humans also\nrun on a liquid? It's called\n\"blood.\"", nil, event)
             cutscene:text("* Apparently it doesn't taste\nany good, which is like, a\ntotal shame.", nil, event)
             cutscene:hideNametag()
-            Game:setFlag("boba_npc_talk", 2)
-        elseif Game:getFlag("boba_npc_talk") == 2 then
+            Game:setFlag("stw_boba_npc_talk", 2)
+        elseif Game:getFlag("stw_boba_npc_talk") == 2 then
             cutscene:showNametag("Robot")
             cutscene:text("* I'd let you try this stuff but\nit's total poison to\nnon-robots.", nil, event)
             cutscene:text("* How do I know that? I don't.", nil, event)
             cutscene:text("* I just wanna deter you from\ndraining my sweet sweet lake.", nil, event)
             cutscene:hideNametag()
-            Game:setFlag("boba_npc_talk", 3)
-        elseif Game:getFlag("boba_npc_talk") == 3 then
+            Game:setFlag("stw_boba_npc_talk", 3)
+        elseif Game:getFlag("stw_boba_npc_talk") == 3 then
             cutscene:showNametag("Robot")
             cutscene:text("* (Slurp slurrrp)", nil, event)
             cutscene:hideNametag()

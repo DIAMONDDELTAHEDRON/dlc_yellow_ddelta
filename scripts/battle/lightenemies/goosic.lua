@@ -295,23 +295,14 @@ function Goosic:onDefeat(damage, battler)
     Game.battle.timer:after(0.8, function()
         self.alpha = 0
         Assets.playSound("ut_explosion")
-        local explosion = Sprite("battle/lightenemies/robot_destroy_explosion")
-        explosion:setPosition(self:getRelativePos(self.width / 2, self.height / 2))
-        explosion.layer = LIGHT_BATTLE_LAYERS["above_battlers"]
-        explosion:setOrigin(0.5, 0.5)
-        explosion:setScale(2, 2)
-        Game.battle:addChild(explosion)
-        Game.battle.timer:after(1, function()
-            explosion:fadeOutAndRemove(1)
-        end)
+        Game.battle:addChild(RobotDestroyExplosion(self.x, self.y-self.height/2))
         self:explodeParts()
     end)
 end
 
 function Goosic:explodeParts()
     local function makeSprite(spritepath, x, y)
-        local sprite = Sprite(spritepath)
-        sprite:setPosition(x or self.x, y or self.y)
+        local sprite = Sprite(spritepath, x, y)
         sprite.layer = LIGHT_BATTLE_LAYERS["above_battlers"] + 1
         sprite:setOrigin(0.5, 0.5)
         sprite:setScale(2, 2)

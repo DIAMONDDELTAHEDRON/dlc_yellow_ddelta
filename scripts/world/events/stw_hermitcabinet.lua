@@ -18,7 +18,7 @@ function SteamworksHermitCabinet:onInteract(player, dir)
     if not Game:getFlag("chem_moved_cabinet") then
 		Game.world:startCutscene(function(cutscene)
 			cutscene:text("* (You notice wall cracks peeking\nout from behind the cabinet.)")
-			local outcome = cutscene:textChoicer("* (Move it?)\n", {"Yes", "    No"})
+			local outcome = cutscene:textChoicer("* (Move it?)\n", {"Yes", "No"})
 			if outcome == 1 then
 				cutscene:detachFollowers()
 				local snd = Assets.playSound("uty_rumble")

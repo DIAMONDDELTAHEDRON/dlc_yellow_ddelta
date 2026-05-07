@@ -7,7 +7,7 @@ return {
         else
             cutscene:text("* (The receptionist is\nunreceptive.)")
             cutscene:text("* (They seemed to be in the\nmiddle of creating a new\nSteamworks ID.)")
-            local opinion = cutscene:textChoicer("* (Finish their work?)\n", {"Yes", "    No"})
+            local opinion = cutscene:textChoicer("* (Finish their work?)\n", {"Yes", "No"})
             if opinion == 1 then
                 Game.world.music:fade(0, 10/30)
 				local cursor_hack = Kristal.Config["alwaysShowCursor"] -- God damn it
@@ -42,7 +42,7 @@ return {
             cutscene:text("* (It's empty now.)")
         else
             cutscene:text("* (You would like some Cake but\nyou'd rather not alert Axis.)")
-            local outcome = cutscene:textChoicer("* (Risk it?)\n", {"Yes", "    No"})
+            local outcome = cutscene:textChoicer("* (Risk it?)\n", {"Yes", "No"})
             if outcome == 1 then
                 if Game.inventory:tryGiveItem("uty_items/cake") then
                     Game.world.music:fade(0, 10/30)
@@ -65,7 +65,7 @@ return {
             cutscene:text("* (Nothing inside but\noddly-shaped glass.)")
         else
             cutscene:text("* (You open the storage cabinet\nand find some Dihydrogen\nMonoxide.)")
-            local outcome = cutscene:textChoicer("* (Take it?)\n", {"Yes", "    No"})
+            local outcome = cutscene:textChoicer("* (Take it?)\n", {"Yes", "No"})
             if outcome == 1 then
                 if Game.inventory:tryGiveItem("uty_items/dihydrogen_monoxide") then
                     Game:setFlag("chem_got_water", true)
@@ -105,7 +105,7 @@ return {
     hermit_bookshelf = function(cutscene, event)
         cutscene:text("* (You examine the\nbookshelf...)")
         cutscene:text("* (A title called \"Mysteries of\nthe Underground\" catches your\neye.)")
-        local choice = cutscene:textChoicer("* (Read it?)\n", {"Yes", "    No"})
+        local choice = cutscene:textChoicer("* (Read it?)\n", {"Yes", "No"})
         if choice == 1 then
             cutscene:text("* Chapter One:[wait:5] Blunko's\nBlunder.")
             cutscene:text("* Located in Oasis Valley,[wait:5] in a\nmodern cafe you can't miss,[wait:5]\nlies an arcade cabinet.")
@@ -116,7 +116,7 @@ return {
             cutscene:text("* Legends say it was playable\nfor a time after it was\nrecovered from the dump...")
             cutscene:text("* ...but its contents were\n\"unpleasant\" upon experience.")
             cutscene:text("* (You flip to the next\nchapter.)")
-            local choice2 = cutscene:textChoicer("* (Continue reading?)\n", {"Yes", "    No"})
+            local choice2 = cutscene:textChoicer("* (Continue reading?)\n", {"Yes", "No"})
             if choice2 == 1 then
                 cutscene:text("* Chapter Two:[wait:5] The Path.")
                 cutscene:text("* The Underground is a vast\nplace.")
@@ -128,7 +128,7 @@ return {
                 cutscene:text("* \"Before I found ____,[wait:5] it felt\nlike I was in a daze,[wait:5]\" the\nfather recounts.")
                 cutscene:text("* \"Just...[wait:5] nothing out there.\"")
                 cutscene:text("* (You flip to the next\nchapter.)")
-                local choice3 = cutscene:textChoicer("* (Continue reading?)\n", {"Yes", "    No"})
+                local choice3 = cutscene:textChoicer("* (Continue reading?)\n", {"Yes", "No"})
                 if choice3 == 1 then
                     cutscene:text("* Chapter Three:[wait:5] The Phantom\nSOUL.")
                     cutscene:text("* Seven human SOULS are all it\ntakes to destroy the barrier\nthat intraps us monsters...")
@@ -154,7 +154,7 @@ return {
 				cutscene:text("* (A complex lock mechanism\nblocks your exit.)")
 			else
 				cutscene:text("* (A complex lock mechanism\nblocks your exit.)")
-				local choice = cutscene:textChoicer("* (Use the ACID?)\n", {"Yes", "    No"})
+				local choice = cutscene:textChoicer("* (Use the ACID?)\n", {"Yes", "No"})
 				if choice == 1 then
 					cutscene:text("* (You use the ACID to ACID\naway at the DOOR.)")
 					Game.inventory:removeItem("uty_items/h_acid")

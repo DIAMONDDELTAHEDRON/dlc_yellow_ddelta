@@ -27,9 +27,9 @@ function Elevator:onInteract(chara, dir)
             party4 = cutscene:getCharacter(Game.party[4].id)
         end
         if Game.world.map.id == "newhome/01" then
-            choice = cutscene:textChoicer("* Do you want to go to the MTT Hotel?", { "Yes", "    No" })
+            choice = cutscene:textChoicer("* Do you want to go to the MTT Hotel?", { "Yes", "No" })
         elseif Game.world.map.id == "newhome/02b" then
-            choice = cutscene:textChoicer("* Do you want to go to the\nCastle?", { "Yes", "    No" })
+            choice = cutscene:textChoicer("* Do you want to go to the\nCastle?", { "Yes", "No" })
         end
         if choice == 1 then
             cutscene:detachFollowers()

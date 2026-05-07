@@ -4,12 +4,16 @@ return function(cutscene)
     local ceroba = Game.world:getCharacter("ceroba")
     local jamm = Game.world:getCharacter("jamm_lw")
     local jammarcy = cutscene:getCharacter("jammarcy_light")
+
+    -- DUNES
     if Game.world.map.id == "dunes/mansion/chujins_grave" then
         if ceroba then
             cutscene:showNametag("Ceroba")
             cutscene:text("* [speed:0.1]...", "mourning", "ceroba")
             cutscene:hideNametag()
         end
+
+        -- STEAMWORKS
     elseif Game.world.map.id == "steamworks/01" then
         if susie then
             cutscene:showNametag("Susie")
@@ -243,6 +247,8 @@ return function(cutscene)
 			end
             cutscene:hideNametag()
         end
+
+        -- NEW HOME
     elseif Game.world.map.id == "newhome/01" then
         if susie then
             cutscene:showNametag("Susie")

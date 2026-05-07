@@ -14,7 +14,7 @@ end
 function SteamworksVent:onInteract(chara, dir)
     Game.world:startCutscene(function(cutscene)
         cutscene:text("* A slightly open vent.")
-        local opinion = cutscene:textChoicer("* Go inside?\n", {"Yes", "    No"})
+        local opinion = cutscene:textChoicer("* Go inside?\n", {"Yes", "No"})
         if opinion == 1 then
             if Game:getFlag("basement_trapped") then
                 Game:setFlag("basement_trapped", false)

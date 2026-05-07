@@ -17,11 +17,7 @@ function Axis:init()
     self.service_mercy = 0
     self.boss = true
 
-    if Game:getFlag("steamworks_kills") == 20 then
-        self.geno_aborted = false
-    else
-        self.geno_aborted = true
-    end
+    self.geno_aborted = not Game:getFlag("EMPTIED_STEAMWORKS", false)
 
 	self.show_hp = false
 
@@ -31,12 +27,6 @@ function Axis:init()
     self.waves = {
         "axis_genocide/1"
     }
-
-    --[[self.dialogue = {
-        "[wave:3][speed:0.5]....."
-    }]]
-
-    self.check = "ATK "..self.attack.." DEF "..self.defense
 
     self.text = {
         "* Can't hold out forever.",
@@ -80,7 +70,7 @@ end
 
 function Axis:onAct(battler, name)
     if name == "Check" then
-        return "* AXIS -- "..self.check
+        return "* AXIS -- ATK "..self.attack.." DEF "..self.defense
     elseif name == "Push" then
         return "* You pressure Axis' defense but\nhe stands firm."
     elseif name == "Taunt" then
@@ -94,17 +84,8 @@ function Axis:onAct(battler, name)
             "* Something stirs inside."
         }
     elseif name == "Standard" then
-        if battler.chara.id == "susie" then
-            Game.battle:startActCutscene(function(cutscene)
-                cutscene:text("* ...", "annoyed_down", "susie")
-            end)
-        elseif battler.chara.id == "noelle" then
-            Game.battle:startActCutscene(function(cutscene)
-                cutscene:text("* ...", "sad_side", "noelle")
-            end)
-        else
-            return "* But "..battler.chara:getName().." had nothing to say."
-        end
+        --self:lightStatusMessage("msg", "miss", COLORS.silver)
+        return "* But it failed."
     end
 
     return super.onAct(self, battler, name)

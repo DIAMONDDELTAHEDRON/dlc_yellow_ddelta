@@ -193,7 +193,7 @@ end
 
 function SteamworksManta:onInteract(chara, dir)
     Game.world:startCutscene(function(cutscene)
-        local opinion = cutscene:textChoicer("* (Take a ride?)\n", {"Yes", "    No"})
+        local opinion = cutscene:textChoicer("* (Take a ride?)\n", {"Yes", "No"})
         if opinion == 1 then
 			Assets.playSound("manta_startup")
 			local leader = Game.world.player

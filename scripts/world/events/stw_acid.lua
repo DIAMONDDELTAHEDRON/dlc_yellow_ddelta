@@ -20,7 +20,7 @@ end
 function Acid:onInteract(player, dir)
     if self.active then
 		Game.world:startCutscene(function(cutscene)
-			local outcome = cutscene:textChoicer("* (Take the acid?)\n", {"Yes", "    No"})
+			local outcome = cutscene:textChoicer("* (Take the acid?)\n", {"Yes", "No"})
 			if outcome == 1 then
                 if Game.inventory:tryGiveItem("uty_items/h_acid") then
 					self:remove()

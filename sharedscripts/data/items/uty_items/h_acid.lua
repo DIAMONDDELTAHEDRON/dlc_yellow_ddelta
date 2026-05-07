@@ -34,7 +34,6 @@ function item:init(inventory)
     self.result_item = nil
     -- Will this item be instantly consumed in battles?
     self.instant = false
-    
 end
 
 function item:onCheck()
@@ -43,7 +42,7 @@ end
 
 function item:onWorldUse(target)
     Game.world:startCutscene(function(cutscene)
-        local opinion = cutscene:textChoicer("* (Are you sure you want to\ndrink the acid?)", {"Yes", "    No"})
+        local opinion = cutscene:textChoicer("* (Are you sure you want to\ndrink the acid?)", {"Yes", "No"})
         if opinion == 1 then
             Assets.playSound("hurt")
             Game:gameOver(320, 240)

@@ -144,7 +144,7 @@ return {
                 cutscene:text("* You can take it if you want.[wait:5] I don't mind.", "neutral", "ceroba")
                 cutscene:hideNametag()
             end
-            local choice = cutscene:textChoicer("* (Take it?)\n", {"Yes", "    No"})
+            local choice = cutscene:textChoicer("* (Take it?)\n", {"Yes", "No"})
             if choice == 1 then
                 if Game.inventory:tryGiveItem("uty_items/corn_chowder") then
                     cutscene:text("* (You got some Corn Chowder!)")
@@ -162,7 +162,7 @@ return {
                 cutscene:text("* Didn't you took that already?", "nervous_smile", "ceroba")
                 cutscene:hideNametag()
             end
-            local choice = cutscene:textChoicer("* (Take more?)\n", {"Yes", "    No"})
+            local choice = cutscene:textChoicer("* (Take more?)\n", {"Yes", "No"})
             if choice == 1 then
                 if Game.inventory:tryGiveItem("uty_items/corn_chowder") then
                     cutscene:text("* (You got some more Corn Chowder!)")
@@ -180,7 +180,7 @@ return {
                 cutscene:text("* This is getting ridiculous.", "unamused", "ceroba")
                 cutscene:hideNametag()
             end
-            local choice = cutscene:textChoicer("* (Take even more?)\n", {"Yes", "    No"})
+            local choice = cutscene:textChoicer("* (Take even more?)\n", {"Yes", "No"})
             if choice == 1 then
                 if Game.inventory:tryGiveItem("uty_items/corn_chowder") then
                     cutscene:text("* (You got some more Corn Chowder!)")
@@ -261,7 +261,7 @@ return {
         if ceroba then
             cutscene:text("* That's a Kotatsu.", "neutral", "ceroba")
             cutscene:text("* If you'd like...[wait:10]\n[face:neutral]* We could rest here.", "alt", "ceroba")
-            local outcome = cutscene:textChoicer("* (Begin hangout?)\n", {"Yes", "    No"})
+            local outcome = cutscene:textChoicer("* (Begin hangout?)\n", {"Yes", "No"})
             if outcome == 1 then
                 cutscene:text("* Alright then.", "neutral", "ceroba")
                 cutscene:text("* Get comfortable.", "smile", "ceroba")
