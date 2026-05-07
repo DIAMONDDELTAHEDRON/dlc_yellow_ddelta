@@ -3,6 +3,7 @@ local RobotDestroyExplosion, super = Class(Sprite)
 function RobotDestroyExplosion:init(sprite, x, y, orig_x, orig_y)
   super.init(self, sprite, x, y)
   self:setOriginExact(orig_x, orig_y)
+  self.layer = LIGHT_BATTLE_LAYERS["below_battlers"]
   self.physics.speed_y = MathUtils.random(-5, -10)
   self.physics.speed_x = MathUtils.randomInt(3, 6)
   if self.x < 320 then

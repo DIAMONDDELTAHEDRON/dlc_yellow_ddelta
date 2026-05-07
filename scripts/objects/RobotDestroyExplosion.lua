@@ -4,6 +4,7 @@ function RobotDestroyExplosion:init(x, y)
   super.init(self, "effects/robot_destroy_explosion", x, y)
   self:setOriginExact(31, 24)
   self:setScale(2)
+  self.layer = LIGHT_BATTLE_LAYERS["below_battlers"] - 0.1
   self.alpha = 0.8
   self.fade_out = false
   self.timer = 0
