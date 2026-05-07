@@ -203,37 +203,21 @@ function TellyVis:onDefeat(damage, battler)
         self:toggleOverlay(true)
         self.alpha = 0
         Assets.playSound("ut_explosion")
-        local explosion = Sprite("battle/lightenemies/robot_destroy_explosion")
-        explosion:setPosition(self:getRelativePos(self.width / 2, self.height / 2))
-        explosion.layer = LIGHT_BATTLE_LAYERS["above_battlers"]
-        explosion:setOrigin(0.5, 0.5)
-        explosion:setScale(2, 2)
-        Game.battle:addChild(explosion)
-        Game.battle.timer:after(1, function()
-            explosion:fadeOutAndRemove(1)
-        end)
+        Game.battle:addChild(RobotDestroyExplosion(self.x, self.y-self.height/2))
         self:explodeParts()
     end)
 end
 
 function TellyVis:explodeParts()
-    local function makeSprite(spritepath, x, y)
-        local sprite = Sprite(spritepath)
-        sprite:setPosition(x or self.x, y or self.y)
-        sprite.layer = LIGHT_BATTLE_LAYERS["above_battlers"] + 1
-        sprite:setOrigin(0.5, 0.5)
-        sprite:setScale(2, 2)
-        Game.battle:addChild(sprite)
-        sprite.physics.direction = math.rad(Utils.random(360))
-        sprite.physics.speed = 7
-        sprite.physics.gravity = 0.2
-    end
-    local relative_pos_x, relative_pos_y = self:getRelativePos(self.width / 2, self.height / 2)
+    local x, y = self:getRelativePos(self.width / 2, self.height / 2)
     local path = "battle/lightenemies/tellyvis/explosion_parts/"
-    makeSprite(path.."antena", relative_pos_x, relative_pos_y)
-    makeSprite(path.."body", relative_pos_x, relative_pos_y)
-    makeSprite(path.."hand", relative_pos_x, relative_pos_y)
-    makeSprite(path.."leg", relative_pos_x, relative_pos_y)
+    Game.battle:addChild(RobotDestroyPartParent(path.."body", x - 2, y - 72, 78, 68))
+    local lefth = Game.battle:addChild(RobotDestroyPartParent(path.."hand", x - 64, y - 60, 27, 38))
+    lefth.scale_x = -1
+    Game.battle:addChild(RobotDestroyPartParent(path.."hand", x + 64, y - 60, 27, 38))
+    local leftl = Game.battle:addChild(RobotDestroyPartParent(path.."leg", x - 24, y - 15, 16, 11))
+    leftl.scale_x = -1
+    Game.battle:addChild(RobotDestroyPartParent(path.."leg", x + 23, y - 15, 16, 11))
 end
 
 function TellyVis:getEncounterText()
