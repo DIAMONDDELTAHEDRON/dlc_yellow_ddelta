@@ -1,7 +1,7 @@
 return {
-  version = "1.10",
+  version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.11.1",
+  tiledversion = "1.12.1",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -14,6 +14,7 @@ return {
   backgroundcolor = { 49, 24, 27 },
   properties = {
     ["light"] = true,
+    ["music"] = "none",
     ["name"] = "Wild East - Sunnyside"
   },
   tilesets = {
@@ -305,6 +306,7 @@ return {
           width = 502,
           height = 424,
           rotation = 0,
+          opacity = 1,
           gid = 1410,
           visible = true,
           properties = {}
@@ -319,6 +321,7 @@ return {
           width = 560,
           height = 256,
           rotation = 0,
+          opacity = 1,
           gid = 1411,
           visible = true,
           properties = {}
@@ -349,6 +352,7 @@ return {
           width = 40,
           height = 800,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -362,6 +366,7 @@ return {
           width = 40,
           height = 800,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -375,6 +380,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -393,6 +399,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -411,6 +418,7 @@ return {
           width = 40,
           height = 120,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -424,6 +432,7 @@ return {
           width = 40,
           height = 120,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -437,6 +446,7 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -450,6 +460,7 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -463,6 +474,7 @@ return {
           width = 40,
           height = 600,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -476,6 +488,7 @@ return {
           width = 40,
           height = 600,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -505,6 +518,7 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "dunes/42",
@@ -521,6 +535,7 @@ return {
           width = 240,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "dunes/40",
@@ -537,6 +552,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -566,6 +582,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -579,6 +596,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -592,6 +610,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }

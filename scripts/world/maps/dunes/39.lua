@@ -1,7 +1,7 @@
 return {
-  version = "1.10",
+  version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.11.1",
+  tiledversion = "1.12.1",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -13,7 +13,7 @@ return {
   nextobjectid = 21,
   properties = {
     ["light"] = true,
-    ["music"] = "deltarune/wind",
+    ["music"] = "wind",
     ["name"] = "Wild East - Outskirts"
   },
   tilesets = {
@@ -230,6 +230,7 @@ return {
           width = 440,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -243,6 +244,7 @@ return {
           width = 40,
           height = 560,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -256,6 +258,7 @@ return {
           width = 40,
           height = 396,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -269,6 +272,7 @@ return {
           width = 40,
           height = 120,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -282,6 +286,7 @@ return {
           width = 240,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -295,6 +300,7 @@ return {
           width = 40,
           height = 680,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -308,6 +314,7 @@ return {
           width = 40,
           height = 480,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -321,6 +328,7 @@ return {
           width = 72,
           height = 126,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -334,6 +342,7 @@ return {
           width = 400,
           height = 20,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -347,6 +356,7 @@ return {
           width = 360,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -376,6 +386,7 @@ return {
           width = 504,
           height = 462,
           rotation = 0,
+          opacity = 1,
           gid = 1280,
           visible = true,
           properties = {}
@@ -390,6 +401,7 @@ return {
           width = 444,
           height = 412,
           rotation = 0,
+          opacity = 1,
           gid = 1282,
           visible = true,
           properties = {}
@@ -420,6 +432,7 @@ return {
           width = 400,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "dunes/38",
@@ -436,6 +449,7 @@ return {
           width = 240,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "dunes/40",
@@ -452,6 +466,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -481,6 +496,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -494,6 +510,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -507,6 +524,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -536,6 +554,7 @@ return {
           width = 456,
           height = 248,
           rotation = 0,
+          opacity = 1,
           gid = 1281,
           visible = true,
           properties = {}

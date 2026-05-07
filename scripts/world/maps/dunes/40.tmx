@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.1" orientation="orthogonal" renderorder="right-down" width="16" height="24" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="9">
+<map version="1.11" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="16" height="24" tilewidth="40" tileheight="40" infinite="0" nextlayerid="6" nextobjectid="9">
  <editorsettings>
   <export target="40.lua" format="lua"/>
  </editorsettings>
  <properties>
   <property name="light" type="bool" value="true"/>
-  <property name="music" value="deltarune/wind"/>
+  <property name="music" value="none"/>
  </properties>
  <tileset firstgid="1" source="../../tilesets/dunes_stuff.tsx"/>
  <objectgroup id="5" name="objects_bg">

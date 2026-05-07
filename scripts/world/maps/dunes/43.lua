@@ -1,7 +1,7 @@
 return {
   version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.11.2",
+  tiledversion = "1.12.1",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -13,7 +13,8 @@ return {
   nextobjectid = 35,
   backgroundcolor = { 49, 24, 27 },
   properties = {
-    ["light"] = true
+    ["light"] = true,
+    ["music"] = "none"
   },
   tilesets = {
     {
@@ -515,6 +516,7 @@ return {
           width = 42,
           height = 206,
           rotation = 0,
+          opacity = 1,
           gid = 1409,
           visible = true,
           properties = {}
@@ -529,6 +531,7 @@ return {
           width = 42,
           height = 206,
           rotation = 0,
+          opacity = 1,
           gid = 2147485057,
           visible = true,
           properties = {}
@@ -543,6 +546,7 @@ return {
           width = 880,
           height = 144,
           rotation = 0,
+          opacity = 1,
           gid = 1408,
           visible = true,
           properties = {}
@@ -557,6 +561,7 @@ return {
           width = 462,
           height = 318,
           rotation = 0,
+          opacity = 1,
           gid = 1407,
           visible = true,
           properties = {}
@@ -587,6 +592,7 @@ return {
           width = 40,
           height = 1000,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -600,6 +606,7 @@ return {
           width = 40,
           height = 1000,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -613,6 +620,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -631,6 +639,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           polygon = {
             { x = 0, y = 0 },
@@ -649,6 +658,7 @@ return {
           width = 320,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -662,6 +672,7 @@ return {
           width = 320,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -675,6 +686,7 @@ return {
           width = 80,
           height = 430,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -688,6 +700,7 @@ return {
           width = 80,
           height = 430,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -701,6 +714,7 @@ return {
           width = 720,
           height = 246,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -714,6 +728,7 @@ return {
           width = 42,
           height = 60,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -727,6 +742,7 @@ return {
           width = 42,
           height = 60,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -740,6 +756,7 @@ return {
           width = 48,
           height = 26,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -753,6 +770,7 @@ return {
           width = 48,
           height = 26,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -766,6 +784,7 @@ return {
           width = 191,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -779,6 +798,7 @@ return {
           width = 191,
           height = 80,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -792,6 +812,7 @@ return {
           width = 28,
           height = 22,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -821,6 +842,7 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "dunes/42",
@@ -837,6 +859,7 @@ return {
           width = 80,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "steamworks/01",
@@ -853,6 +876,7 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["cutscene"] = "dunes.steamworks_gate"
@@ -868,6 +892,7 @@ return {
           width = 48,
           height = 54,
           rotation = 0,
+          opacity = 1,
           gid = 1406,
           visible = true,
           properties = {}
@@ -882,6 +907,7 @@ return {
           width = 48,
           height = 54,
           rotation = 0,
+          opacity = 1,
           gid = 1406,
           visible = true,
           properties = {}
@@ -912,6 +938,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -925,6 +952,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -938,6 +966,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }

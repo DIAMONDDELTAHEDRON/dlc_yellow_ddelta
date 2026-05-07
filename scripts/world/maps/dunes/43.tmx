@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.11" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="22" height="37" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#31181b" nextlayerid="18" nextobjectid="35">
+<map version="1.11" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="22" height="37" tilewidth="40" tileheight="40" infinite="0" backgroundcolor="#31181b" nextlayerid="18" nextobjectid="35">
  <editorsettings>
   <export target="43.lua" format="lua"/>
  </editorsettings>
  <properties>
   <property name="light" type="bool" value="true"/>
+  <property name="music" value="none"/>
  </properties>
  <tileset firstgid="1" source="../../tilesets/starlo_farm.tsx"/>
  <tileset firstgid="118" source="../../tilesets/dunes.tsx"/>

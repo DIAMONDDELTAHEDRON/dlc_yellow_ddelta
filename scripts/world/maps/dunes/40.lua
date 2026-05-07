@@ -1,7 +1,7 @@
 return {
-  version = "1.10",
+  version = "1.11",
   luaversion = "5.1",
-  tiledversion = "1.11.1",
+  tiledversion = "1.12.1",
   class = "",
   orientation = "orthogonal",
   renderorder = "right-down",
@@ -13,7 +13,7 @@ return {
   nextobjectid = 9,
   properties = {
     ["light"] = true,
-    ["music"] = "deltarune/wind"
+    ["music"] = "none"
   },
   tilesets = {
     {
@@ -48,6 +48,7 @@ return {
           width = 640,
           height = 960,
           rotation = 0,
+          opacity = 1,
           gid = 8,
           visible = true,
           properties = {}
@@ -78,6 +79,7 @@ return {
           width = 40,
           height = 960,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -91,6 +93,7 @@ return {
           width = 40,
           height = 960,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
@@ -120,6 +123,7 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "dunes/41",
@@ -136,6 +140,7 @@ return {
           width = 160,
           height = 40,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {
             ["map"] = "dunes/39",
@@ -168,6 +173,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -181,6 +187,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         },
@@ -194,6 +201,7 @@ return {
           width = 0,
           height = 0,
           rotation = 0,
+          opacity = 1,
           visible = true,
           properties = {}
         }
