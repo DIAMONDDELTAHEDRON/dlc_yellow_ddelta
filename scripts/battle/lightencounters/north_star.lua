@@ -19,6 +19,11 @@ function Starlo:init()
 	self.bg_state = 0
 end
 
+function Starlo:createBackground()
+    local background = StarloBattleBackground()
+    return Game.battle:addChild(background)
+end
+
 function Starlo:setBattleState()
     Game.battle.music:play(self.music)
     Game.battle:setState("ENEMYDIALOGUE")
