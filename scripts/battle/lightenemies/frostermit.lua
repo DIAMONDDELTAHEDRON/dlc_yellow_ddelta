@@ -13,7 +13,7 @@ function Frostermit:init()
     self.money = 5
     self.experience = 20
 
-    self.dialogue_bubble = "uty_2"
+    self.dialogue_bubble = "uty_large"
     self.dialogue_offset = {10, 10}
 
     self.revealed = false

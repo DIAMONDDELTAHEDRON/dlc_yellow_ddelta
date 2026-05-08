@@ -17,7 +17,7 @@ function Axis:init()
     self.service_mercy = 0
     self.boss = true
 
-    self.dialogue_bubble = "uty_2"
+    self.dialogue_bubble = "uty_large"
     self.dialogue_offset = {-30, 10}
 
     self.waves = {

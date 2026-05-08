@@ -13,7 +13,7 @@ function Sousborg:init()
     self.money = 30
     self.experience = 0
 
-    self.dialogue_bubble = "uty_2"
+    self.dialogue_bubble = "uty_large"
     self.dialogue_offset = {-70, 10}
 
     self.waves = {
