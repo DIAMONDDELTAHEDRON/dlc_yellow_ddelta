@@ -22,7 +22,7 @@ function Ceroba:init()
     self.attack_cycle = 0
     self.low_health = false
 
-    self.dialogue_bubble = "uty_3"
+    self.dialogue_bubble = "uty_largest"
     self.dialogue_offset = {-40, 20}
 
     self.waves = {

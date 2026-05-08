@@ -13,7 +13,7 @@ function Dunebud:init()
     self.money = 8
     self.experience = 57
 
-    self.dialogue_bubble = "uty_2"
+    self.dialogue_bubble = "uty_large"
     self.dialogue_offset = {10, 10}
 
     self.jiggled = false
