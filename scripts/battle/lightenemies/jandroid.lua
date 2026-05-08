@@ -17,7 +17,7 @@ function Jandroid:init()
     self.dialogue_offset = {-30, 10}
 
     self.waves = {
-        --"jandroid/slippery_floor",
+        "jandroid/slippery_floor",
         "jandroid/spray_bottle"
     }
 
