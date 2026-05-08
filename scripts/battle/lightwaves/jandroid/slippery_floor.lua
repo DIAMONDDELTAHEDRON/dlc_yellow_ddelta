@@ -15,6 +15,7 @@ function SlipperyFloor:init()
 end
 
 function SlipperyFloor:onStart()
+    -- WHY THE FUCK DOES IT NEED 10 TO IT'S Y TO BE ACCURATE HERE BUT NOT ON OTHER ATTACK
     if Game.battle:getEnemyBattler("goosic") then
         self:spawnBullet("jandroid/warning_slippery_floor", (Game.battle.arena.left - 5) - 90, (Game.battle.arena.y + 10))
     else
