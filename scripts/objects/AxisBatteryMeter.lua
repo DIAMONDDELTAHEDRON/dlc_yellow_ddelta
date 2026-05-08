@@ -22,7 +22,7 @@ function AxisBatteryMeter:update()
   end
 
   local battery_level_target = 100 * (self.hit_count / 8)
-  self.current = MathUtils.lerp(self.current, battery_level_target, 0.15)
+  self.current = MathUtils.lerp(self.current, battery_level_target, 0.15*DTMULT)
 end
 
 function AxisBatteryMeter:draw()

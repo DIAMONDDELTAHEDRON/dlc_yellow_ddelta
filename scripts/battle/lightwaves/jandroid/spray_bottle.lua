@@ -9,6 +9,7 @@ end
 
 function SprayBottle:onStart()
     self:spawnBullet("jandroid/spray_bottle", 440, 300)
+    self:spawnBullet("jandroid/warning_slippery_floor", Game.battle.arena.left - 25, Game.battle.arena.y)
 end
 
 return SprayBottle

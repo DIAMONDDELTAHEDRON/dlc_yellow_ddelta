@@ -12,7 +12,7 @@ function SprayBottleSpray:init(x, y)
 end
 
 function SprayBottleSpray:update()
-    self.physics.speed = MathUtils.lerp(self.physics.speed, 0, 0.05)
+    self.physics.speed = MathUtils.lerp(self.physics.speed, 0, 0.05*DTMULT)
     if self.physics.speed < 2 and not self.sprite_changed then
         self:setSprite("battle/bullets/jandroid/spray_bottle_spray_disappear")
         self.sprite_changed = true

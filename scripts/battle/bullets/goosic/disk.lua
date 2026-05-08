@@ -37,7 +37,7 @@ function Disk:update()
         self.disc_yoffset = self.disc_yoffset - math.abs(self.vsp)
         self.y = self.y + self.vsp * DTMULT
         if self.disc_yoffset <= 0 then
-            self.vsp = MathUtils.lerp(self.vsp, 0, 0.15)
+            self.vsp = MathUtils.lerp(self.vsp, 0, 0.15*DTMULT)
             if math.abs(self.vsp) < 0.1 then
                 self.vsp = 0
                 self.scene = 1
@@ -62,7 +62,7 @@ function Disk:update()
             self.slow_down_noloop = true
         end
         if self.slow_down_noloop == true then
-            self.spin_speed = MathUtils.lerp(self.spin_speed, 0, 0.75)
+            self.spin_speed = MathUtils.lerp(self.spin_speed, 0, 0.75*DTMULT)
             if self.spin_speed < 0.1 then
                 self.spin_speed = 0
                 self.scene = self.scene + 1
@@ -74,7 +74,7 @@ function Disk:update()
             self.scene = self.scene + 1
         end)
     elseif self.scene == 5 then
-        self.physics.speed = MathUtils.lerp(self.physics.speed, 14, 0.5)
+        self.physics.speed = MathUtils.lerp(self.physics.speed, 14, 0.5*DTMULT)
         self.wave.timer:script(function(wait)
             wait(0.7)
             self.launch_timer = self.launch_timer_max
@@ -87,13 +87,13 @@ function Disk:update()
     self.physics.direction = self.physics.direction - self.spin_speed * DTMULT
     self.rotation = self.physics.direction
     if self.scene ~= 4 and self.scene ~= -1 then
-        self.physics.speed = MathUtils.lerp(self.physics.speed, 0, 0.3)
+        self.physics.speed = MathUtils.lerp(self.physics.speed, 0, 0.3*DTMULT)
     end
     local alpha_new = 0
     if self.scene == 2 or self.scene == 3 then
         alpha_new = 1
     end
-    self.arrow_alpha = MathUtils.lerp(self.arrow_alpha, alpha_new, 0.2)
+    self.arrow_alpha = MathUtils.lerp(self.arrow_alpha, alpha_new, 0.2*DTMULT)
 
     super.update(self)
 end
