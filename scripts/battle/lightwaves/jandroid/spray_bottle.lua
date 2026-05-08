@@ -2,8 +2,8 @@ local SprayBottle, super = Class(LightWave)
 
 function SprayBottle:init()
     super.init(self)
-    self:setArenaSize(100, 118)
     self:setArenaPosition(319, 310)
+    self:setArenaSize(100, 118)
     self.time = 7 -- room_speed * 7
 end
 

@@ -6,6 +6,8 @@ function SprayBottleSpray:init(x, y)
     self:setScale(1)
     self.sprite:play(1/10)
 
+    self.destroy_on_hit = false
+
     self.physics.speed = 8
 
     self.sprite_changed = false

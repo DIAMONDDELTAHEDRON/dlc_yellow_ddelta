@@ -7,6 +7,8 @@ function SprayBottle:init(x, y)
     self.sprite:stop()
     self.sprite.alpha = 0
 
+    self.collider = nil
+
     self.rad_current = 0
     self.rad_inc = 0.05
     self.move_range = 30

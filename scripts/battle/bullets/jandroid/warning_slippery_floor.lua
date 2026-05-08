@@ -6,6 +6,8 @@ function WarningSlipperyFloor:init(x, y)
     self:setScale(1)
     self.sprite:play(1/2)
     self.sprite.alpha = 0
+
+    self.collider = nil
 end
 
 function WarningSlipperyFloor:update()
