@@ -4,6 +4,9 @@ local AxisBattleBackground, super = Class(Object)
 
 function AxisBattleBackground:init(x,y)
     super.init(self,x,y)
+	self:setParallax(0, 0)
+    self.layer = LIGHT_BATTLE_LAYERS["background"]
+	self.debug_select = false
 	self.number_timer = 0
 	self.number_timer_max = Utils.random(25, 45, 0.5)
 

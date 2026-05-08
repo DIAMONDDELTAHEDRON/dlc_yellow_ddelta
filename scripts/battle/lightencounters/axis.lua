@@ -20,15 +20,16 @@ function Axis:setBattleState()
     Game.battle:startCutscene("axis", "floweysave")
 end
 
-function Axis:drawBackground() end -- leave it empty to NOT draw the rectangle background
+function Axis:createBackground()
+    local background = AxisBattleBackground()
+    return Game.battle:addChild(background)
+end
 
 function Axis:onBattleInit()
     self.battery_meter = AxisBatteryMeter(20, -80)
     Game.battle:addChild(self.battery_meter)
     self.tick_o_bar = AxisTickOBar(557, -80)
     Game.battle:addChild(self.tick_o_bar)
-	self.bg = Game.battle:addChild(AxisBattleBackground())
-	self.bg:setLayer(LIGHT_BATTLE_LAYERS["below_battlers"])
 end
 
 function Axis:onReturnToWorld(events)

@@ -47,7 +47,10 @@ function Axis:init()
     self.can_flee = false
 end
 
-function Axis:drawBackground() end -- leave it empty to NOT draw the rectangle background
+function Axis:createBackground()
+    local background = AxisBattleBackground()
+    return Game.battle:addChild(background)
+end
 
 function Axis:update()
     super.update(self)
@@ -55,8 +58,6 @@ end
 
 function Axis:onBattleInit()
 	MagicalGlassLib.serious_mode = true
-	self.bg = Game.battle:addChild(AxisBattleBackground())
-	self.bg:setLayer(LIGHT_BATTLE_LAYERS["below_battlers"])
 end
 
 function Axis:beforeStateChange(old, new)
