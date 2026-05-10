@@ -19,12 +19,20 @@ function Frostermit:init()
 
     self:addEnemy("frostermit")
 
-    self.background_color = {0, 198/255, 1}
-
     self.can_flee = false
 
     self.kill_count = 0
+end
 
+function Frostermit:createBackground()
+    if self.background then
+        local background = Sprite("ui/lightbattle/backgrounds/standard", 0, 0, SCREEN_HEIGHT, SCREEN_WIDTH)
+        background:setColor({0, 198 / 255, 1, 1})
+        background:setParallax(0, 0)
+        background.layer = LIGHT_BATTLE_LAYERS["background"]
+        background.debug_select = false
+        return Game.battle:addChild(background)
+    end
 end
 
 return Frostermit

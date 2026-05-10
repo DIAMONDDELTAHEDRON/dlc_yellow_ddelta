@@ -1,4 +1,4 @@
-local ShieldSoul, super = Class(Soul)
+local ShieldSoul, super = Class(LightSoul)
 
 function ShieldSoul:init(x, y, color)
     super.init(self, x, y)

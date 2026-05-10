@@ -19,12 +19,20 @@ function Dunebud:init()
 
     self:addEnemy("dunebud")
 
-    self.background_color = {1, 204/255, 0}
-
     self.can_flee = false
 
     self.kill_count = 0
+end
 
+function Dunebud:createBackground()
+    if self.background then
+        local background = Sprite("ui/lightbattle/backgrounds/standard", 0, 0, SCREEN_HEIGHT, SCREEN_WIDTH)
+        background:setColor({1, 204 / 255, 0, 1})
+        background:setParallax(0, 0)
+        background.layer = LIGHT_BATTLE_LAYERS["background"]
+        background.debug_select = false
+        return Game.battle:addChild(background)
+    end
 end
 
 return Dunebud

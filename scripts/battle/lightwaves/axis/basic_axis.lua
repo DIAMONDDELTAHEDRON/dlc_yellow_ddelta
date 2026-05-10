@@ -18,7 +18,7 @@ function Basic:onStart()
 end
 
 function Basic:onEnd()
-    Game.battle:swapSoul(Soul())
+    Game.battle:swapSoul(LightSoul())
     super.onEnd(self)
 end
 
