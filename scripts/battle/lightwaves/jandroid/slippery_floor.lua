@@ -27,7 +27,7 @@ function SlipperyFloor:spawnBullets(first)
     if first then
         self:spawnBullet("warning_exclamation_mark", (Game.battle.arena.left - 5) + 10, (Game.battle.arena.top + 5) + 24)
         self:spawnBullet("warning_exclamation_mark", (Game.battle.arena.right + 5) - 10, Game.battle.arena.y)
-        self:spawnBullet("warning_exclamation_mark", (Game.battle.arena.left - 5) + 10, (Game.battle.arena.bottom + 6) - 24)
+        self:spawnBullet("warning_exclamation_mark", (Game.battle.arena.left - 5) + 10, (Game.battle.arena.bottom + 5) - 24)
     else
         self:spawnBulletTo(Game.battle.mask, "jandroid/floor_bucket", (Game.battle.arena.left - 5) - 20, (Game.battle.arena.top - 5) + 20)
         self:spawnBulletTo(Game.battle.mask, "jandroid/floor_bucket", (Game.battle.arena.right + 5) + 20, Game.battle.arena.y)
