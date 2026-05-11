@@ -15,7 +15,6 @@ return {
         Game.battle:setState("DEFENDINGEND")
         cutscene:wait(0.5)
         cutscene:after(function()
-            Game.battle.encounter:onBattleStart()
             Game.battle.encounter.background = true
             Game.battle.encounter.bg_state = 1
             Game.battle.seen_encounter_text = false
