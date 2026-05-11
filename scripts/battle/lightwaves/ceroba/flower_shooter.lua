@@ -3,7 +3,7 @@ local Basic, super = Class(LightWave)
 function Basic:init()
     super.init(self)
     self:setArenaSize(160, 160)
-    --self:setArenaPosition(319, 320) -- orig 320, 385
+    self:setArenaPosition(319, 305) -- orig 320, 385
     self.type = Game.battle:getEnemyBattler("ceroba_geno").phase
     self.time = 10
     self.nextringcolor = 1

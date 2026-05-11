@@ -84,6 +84,7 @@ return {
         Game.battle:setState("DEFENDINGEND")
         cutscene:wait(0.5)
         cutscene:after(function()
+			Game.battle.music:play(Game.battle.encounter.music)
             Game.battle.seen_encounter_text = false
             Game.battle:setState("ACTIONSELECT")
         end, true)

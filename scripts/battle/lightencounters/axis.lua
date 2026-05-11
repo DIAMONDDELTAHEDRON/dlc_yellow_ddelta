@@ -17,6 +17,7 @@ end
 
 function Axis:onBattleStart()
     Game.battle:setState("ENEMYDIALOGUE")
+	Game.battle.music:stop()
     Game.battle:startCutscene("axis", "floweysave")
 end
 
