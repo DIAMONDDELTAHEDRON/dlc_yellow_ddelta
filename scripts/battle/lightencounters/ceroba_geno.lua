@@ -39,7 +39,7 @@ function Ceroba:onBattleInit()
 	MagicalGlassLib.serious_mode = true
 end
 
-function Ceroba:setBattleState()
+function Ceroba:onBattleStart()
     local ceroba = Game.battle:getEnemyBattler("ceroba_geno")
     ceroba:toggleOverlay(true)
     ceroba:getActiveSprite():setSprite("animations/intro_1")

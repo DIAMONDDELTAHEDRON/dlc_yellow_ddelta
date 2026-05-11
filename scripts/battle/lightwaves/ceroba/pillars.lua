@@ -70,7 +70,7 @@ function Basic:onStart()
                 debris3.physics.gravity = 0.3
                 pillars[num]:remove()
                 self:spawnBullet("ceroba/explosion", bigflower.x, bigflower.y)
-                Game.battle.camera:shake(4, 2, 0.5)
+                Game.battle:shake(4, 2, 0.5)
                 if self.type == 2 then
                     self.timer:after(0.5, function()
                         self:spawnBullet("ceroba/ring_"..self.flash_order_color[num], bigflower.x, bigflower.y)

@@ -15,8 +15,9 @@ function Axis:init()
     self.trash_meter = 0
 end
 
-function Axis:setBattleState()
+function Axis:onBattleStart()
     Game.battle:setState("ENEMYDIALOGUE")
+	Game.battle.music:stop()
     Game.battle:startCutscene("axis", "floweysave")
 end
 
