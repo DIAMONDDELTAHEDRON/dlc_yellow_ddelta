@@ -24,7 +24,7 @@ function Starlo:createBackground()
     return Game.battle:addChild(background)
 end
 
-function Starlo:setBattleState()
+function Starlo:onBattleStart()
     Game.battle.music:play(self.music)
     Game.battle:setState("ENEMYDIALOGUE")
     Game.battle.soul.can_move = true

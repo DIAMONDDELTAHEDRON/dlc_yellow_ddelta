@@ -66,6 +66,7 @@ return {
         cutscene:battlerText(ceroba, "You WILL know the\npain you have caused.")]]
 
         cutscene:after(function()
+            Game.battle.seen_encounter_text = false
             Game.battle:setState("ACTIONSELECT")
         end, true)
     end,

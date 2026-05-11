@@ -17,7 +17,7 @@ function Axis:init()
 
 end
 
-function Axis:setBattleState()
+function Axis:onBattleStart()
     Game.battle:setState("ENEMYDIALOGUE")
     Game.battle:startCutscene(function(cutscene)
         local axis = Game.battle:getEnemyBattler("axis")

@@ -48,7 +48,7 @@ end
 
 function CerobaFlowerLarge:explodeFlower(BorO)
     self.wave:spawnBullet("ceroba/explosion", self.x, self.y)
-    Game.battle.camera:shake(4, 2, 0.5)
+    Game.battle:shake(4, 2, 0.5)
     if self.circle then
         self.wave:spawnBullet("ceroba/ring_"..self.circle, self.x, self.y)
     elseif BorO then
