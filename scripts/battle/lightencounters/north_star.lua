@@ -3,7 +3,7 @@ local Starlo, super = Class(LightEncounter)
 function Starlo:init()
     super.init(self)
 
-    self.text = "* The enemy engages the battle."
+    self.text = "* Showdown."
 
     self.music = "GHOST_TOWN"
 
@@ -25,9 +25,9 @@ function Starlo:createBackground()
 end
 
 function Starlo:onBattleStart()
-    Game.battle.music:play(self.music)
+    Game.battle.music:stop()
     Game.battle:setState("ENEMYDIALOGUE")
-    Game.battle.soul.can_move = true
+    Game.battle.soul.can_move = false
     --self:onBattleStart()
     Game.battle:startCutscene("starlo", "intro")
 end
