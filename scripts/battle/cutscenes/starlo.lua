@@ -1,9 +1,20 @@
 return {
     intro = function(cutscene, battler, enemy)
         local starlo = Game.battle:getEnemyBattler("starlo")
-        cutscene:wait(1)
+        cutscene:wait(20/30)
         starlo.emotion = "normal"
+		Assets.playSound("battle_flash", 2)
+		Assets.playSound("starlo_rope_strain", 1)
+		Game.battle:swapSoul(StarloLassoSoul())
         cutscene:wait(1)
+		local tutorial_arrows = SoulTutorialArrows(Game.battle.soul.x, Game.battle.soul.y + 30)
+		tutorial_arrows.floor_xy_check = true
+		Game.battle:addChild(tutorial_arrows)
+		Game.battle.soul.can_move = true
+        cutscene:wait(function()
+			return tutorial_arrows:isRemoved() or not tutorial_arrows
+		end)
+        cutscene:wait(70/30)
         local dialogue = {
             "Never thought I'd\nhave to do this ever\nagain.",
             "But it seems I was\nwrong.",
@@ -12,6 +23,8 @@ return {
         cutscene:battlerText(starlo, dialogue)
         starlo.emotion = "covered"
 
+		Game.battle:swapSoul(LightSoul())
+		Game.battle.music:play(Game.battle.encounter.music)
         Game.battle:setState("DEFENDINGEND")
         cutscene:wait(0.5)
         cutscene:after(function()
