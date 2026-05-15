@@ -21,7 +21,6 @@ return {
             "Well,[wait:5] enough talking.[wait:10]\nLet's get this over\nwith."
         }
         cutscene:battlerText(starlo, dialogue)
-        starlo.emotion = "covered"
 
 		Game.battle:swapSoul(LightSoul())
 		Game.battle.music:play(Game.battle.encounter.music)

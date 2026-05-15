@@ -5,8 +5,8 @@ function actor:init()
 
     self.name = "Starlo"
 
-    self.light_battle_width = 54
-    self.light_battle_height = 107
+    self.light_battle_width = 108
+    self.light_battle_height = 214
 
     self.hitbox = {0, 0, 16, 16}
 
@@ -17,14 +17,10 @@ function actor:init()
 
     self.voice = "starlo"
 
-    self.animations = {
-        ["lightbattle_hurt"] = {"body_hurt", 1, true},
-        ["shoot"] = {"body_shoot", 1/10, true}
-    }
+    self.animations = {}
 
     self.offsets = {
-        ["body_hurt"] = {0, 0},
-        ["body_dead"] = {4, 16}
+        ["body_dead"] = {8, 32}
     }
 
     self.anim_loop_time = 30 * 6 -- room_speed * 6
@@ -33,23 +29,23 @@ function actor:init()
     self.anim_stage = 1
     self.anim_inc_multiplier = 2
     self.anim_inc_multiplier_max = 2
-    self.anim_head_offset = 107 - 32 -- y - obj_starlo_boss_head.y
-    self.anim_head_offset_x = 27 - 27 -- x - obj_starlo_boss_head.x
+    self.anim_head_offset = 214 - 64 -- y - obj_starlo_boss_head.y
+    self.anim_head_offset_x = 54 - 54 -- x - obj_starlo_boss_head.x
 
     self.do_body_stretch = true
 
     self:addLightBattlerPart("body", {
         ["create_sprite"] = function()
-            local sprite = Sprite(self.path.."/body", 27, 107)
-            sprite:setOriginExact(27, 77)
+            local sprite = Sprite(self.path.."/body", 54, 214)
+            sprite:setOriginExact(54, 154)
             return sprite
         end
     })
 
     self:addLightBattlerPart("head", {
         ["create_sprite"] = function()
-            local sprite = Sprite(self.path.."/head", 27, 32)
-            sprite:setOriginExact(21, 32)
+            local sprite = Sprite(self.path.."/head", 54, 64)
+            sprite:setOriginExact(42, 64)
             sprite.layer = 500
             return sprite
         end

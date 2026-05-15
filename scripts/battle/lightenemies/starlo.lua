@@ -5,6 +5,7 @@ function Starlo:init()
 
     self.name = "North Star"
     self:setActor("starlo_b")
+    self:setScale(1)
 
     self.max_health = 600
     self.health = 600
@@ -21,7 +22,7 @@ function Starlo:init()
     self.dialogue_offset = {20, -30}
 
     self.waves = {
-        "basic"
+        "starlo/take_aim"
     }
 
     self.check = "ATK "..self.attack.." DEF "..self.defense.."\n* The almighty Sheriff."
@@ -64,6 +65,39 @@ function Starlo:onAct(battler, name)
     end
 
     return super.onAct(self, battler, name)
+end
+
+function Starlo:onHurt(damage, battler)
+    self.hurt_timer = 1
+    if battler then
+        Game:giveTension(MathUtils.round(self:getAttackTension(battler.tp_gain or 0)))
+        battler.tp_gain = 0
+    end
+    self.actor.do_body_stretch = false
+    self:getSpritePart("head"):setSprite("battle/lightenemies/starlo/head_hurt")
+
+    if self.can_shake then
+        self:getActiveSprite():shake(6, 0, 0.4, 2 / 30)
+    end
+
+    if self.health <= (self.max_health * self.tired_percentage) then
+        -- If `tired_percentage` is set to 0 (or less?), treat that as an indication to hide the message.
+        self:setTired(true, self.tired_percentage <= 0)
+    end
+
+    if self.health <= (self.max_health * self.spare_percentage) then
+        self.mercy = 100
+    end
+end
+
+function Starlo:onHurtEnd()
+    if self.can_shake then
+        self:getActiveSprite():stopShake()
+    end
+    if self.health > 0 or not self.exit_on_defeat then
+        self.actor.do_body_stretch = true
+        self:getSpritePart("head"):setSprite("battle/lightenemies/starlo/head")
+    end
 end
 
 --[[function Starlo:getNextWaves()
