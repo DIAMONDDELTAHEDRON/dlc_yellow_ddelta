@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="16" height="20" tilewidth="40" tileheight="40" infinite="0" nextlayerid="15" nextobjectid="103">
+<map version="1.11" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="16" height="20" tilewidth="40" tileheight="40" infinite="0" nextlayerid="15" nextobjectid="111">
  <editorsettings>
   <export target="20.lua" format="lua"/>
  </editorsettings>
@@ -186,6 +186,7 @@
   <object id="48" name="shadowarea" x="120" y="0">
    <polygon points="0,0 40,0 40,160 80,160 80,280 160,280 160,800 80,800 80,320 40,320 40,200 0,200"/>
   </object>
+  <object id="105" name="stairs" x="360" y="240" width="100" height="140"/>
  </objectgroup>
  <objectgroup id="2" name="collision">
   <object id="10" x="160" y="320" width="40" height="480"/>
@@ -193,12 +194,12 @@
   <object id="15" x="440" y="160" width="200" height="40"/>
   <object id="16" x="600" y="200" width="40" height="560"/>
   <object id="17" x="440" y="760" width="200" height="40"/>
-  <object id="18" x="440" y="312" width="40" height="448"/>
-  <object id="20" x="364" y="356" width="36" height="28"/>
-  <object id="22" x="364" y="240" width="36" height="40"/>
-  <object id="21" x="400" y="336" width="40" height="48"/>
-  <object id="23" x="440" y="200" width="40" height="42"/>
-  <object id="24" x="400" y="220" width="40" height="46"/>
+  <object id="18" x="440" y="320" width="40" height="440"/>
+  <object id="20" x="360" y="350" width="40" height="40"/>
+  <object id="22" x="360" y="220" width="40" height="40"/>
+  <object id="21" x="400" y="338" width="40" height="52"/>
+  <object id="23" x="440" y="200" width="30" height="40"/>
+  <object id="24" x="400" y="200" width="40" height="40"/>
   <object id="28" x="578" y="400" width="24" height="38"/>
   <object id="29" x="578" y="600" width="24" height="38"/>
   <object id="34" x="120" y="200" width="40" height="160"/>
